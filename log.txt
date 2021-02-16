@@ -1,6 +1,17 @@
-On branch master
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-        src/
+commit fa7736b905fde1dccfd18229a74e9b23693aa89a (HEAD -> master)
+Author: Юлия <yuliya453464@mail.ru>
+Date:   Mon Feb 15 16:29:59 2021 +0300
 
-nothing added to commit but untracked files present (use "git add" to track)
+    add log.txt
+
+commit 16e2765ac0816e215ed875fa43a01d5fa95e8eee
+Author: Юлия <yuliya453464@mail.ru>
+Date:   Mon Feb 15 16:27:39 2021 +0300
+
+    add task1/status.txt
+
+commit 4e24e508013dced9a41d3bc5b5a603d5eb580672
+Author: Юлия <yuliya453464@mail.ru>
+Date:   Mon Feb 15 16:24:35 2021 +0300
+
+    add .gitignore
