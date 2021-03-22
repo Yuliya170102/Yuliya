@@ -11,21 +11,28 @@ h1 {
 	text-indent: 10%;
 	line-height: 60px;
 }
-main {
-	z-index: 1;
+.left {
+	float: left;
+	height: 400px;
+	width: 500px;
 }
-fieldset {
-	height: 350px;
-	border: 0 none;
+.right {
+	float: right;
+	height: 400px;
+	width: 500px;
+	position: relative;
+	right: 230px;
+
 }
-.heshteg {
+.hash-tag {
 	font-weight: bold; 
 	text-indent: 5%;
 	position: relative; 
 	bottom: 50px;
-	text-align: right;
+	left: 350px;
+	text-align: left;
 }
-.shortDescription {
+.short-description {
 	background: rgba(196, 196, 196, 1); 
     color: rgba(0, 0, 0, 1); 
     width: 500px;
@@ -75,7 +82,7 @@ a{
     line-height: 12px;
     margin: 5px;
 }
-.roundForSale {
+.round-for-sale {
 	background: rgba(196, 196, 196, 1); 
     color: rgba(0, 0, 0, 1); 
     width:75px;
@@ -91,7 +98,7 @@ a{
     font-size: 20px;
 	font-weight: bold;
 }
-.buttonAddComment {
+.button-add-comment {
 	border-radius:  5px;
 	background: -webkit-gradient(linear, 0 0, 0 100%, from(#D0ECF4), to(#D0ECF4), color-stop(0.5, #5BC9E1));
 	position: relative;
@@ -99,10 +106,12 @@ a{
     bottom: 185px;
     margin: 5px;
 }
-.imgProfil {
+.img-profil {
 	float: right;
 	width: 50px;
 	height: 50px;
+	position: relative;
+	right: 60px;
 }
 .nik {
 	font-family:Pattaya;
@@ -113,15 +122,27 @@ a{
 	text-align: right;
 	position: relative; 
 	top: 35px;
+	right: 60px;
 }
-.imgProduct {
+.button-logout{
+	border: 0 none;
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(#D0ECF4), to(#D0ECF4), color-stop(0.5, #5BC9E1));
+	border-radius:  5px;
+	float: right;
+	width: 60px;
+	height: 30px;
+	position: relative;
+	right: -50px;
+	top: -10px;
+}
+.img-product {
 	background:rgba(198, 247, 250, 1);
 	width: 175px;
 	height: 175px;
 	float: left;
 	border: 3px solid #00a8e1;
 }
-.productName {
+.product-name {
 	font-size: 18px;
 	font-weight: bold;
 	text-indent: 5%;
@@ -133,14 +154,16 @@ span {
 	left: 30px; 
 	bottom: 300px;
 }
-
-.buttonAdd {
+.span-color {
+	color: rgba(255, 247, 44, 1);
+}
+.button-add {
 	border-radius:  5px;
 	position: absolute;
 	left: 700px;
 	background: -webkit-gradient(linear, 0 0, 0 100%, from(#D0ECF4), to(#D0ECF4), color-stop(0.5, #5BC9E1));
 }
-.textForFooter {
+.text-for-footer {
 	font-family:Pattaya;
 	font-style: italic;
 	font-size: 24px;
@@ -149,7 +172,7 @@ span {
 	text-align: left;
 	text-indent: 5%;
 }
-.dateUp {
+.date-up {
 	font-family:Pattaya;
 	font-style: italic;
 	font-size: 24px;
@@ -158,7 +181,6 @@ span {
 	text-align: right;
 	margin-right: 2%;
 }
-
 footer {
 	background-color: rgba(240, 244, 244, 1);
 	bottom: 0;
