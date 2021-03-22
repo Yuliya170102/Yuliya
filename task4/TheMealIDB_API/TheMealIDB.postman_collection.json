@@ -1,0 +1,107 @@
+{
+	"info": {
+		"_postman_id": "f74b2b44-b073-42a3-8e40-df1c1ae2043b",
+		"name": "TheMealIDB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "TheMealDB_1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.themealdb.com/api/json/v1/1/search.php?s=Thai Green Curry",
+					"protocol": "https",
+					"host": [
+						"www",
+						"themealdb",
+						"com"
+					],
+					"path": [
+						"api",
+						"json",
+						"v1",
+						"1",
+						"search.php"
+					],
+					"query": [
+						{
+							"key": "s",
+							"value": "Thai Green Curry",
+							"description": "Search meal by name"
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TheMealIDB_2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.themealdb.com/api/json/v1/1/filter.php?i=Pork",
+					"protocol": "https",
+					"host": [
+						"www",
+						"themealdb",
+						"com"
+					],
+					"path": [
+						"api",
+						"json",
+						"v1",
+						"1",
+						"filter.php"
+					],
+					"query": [
+						{
+							"key": "i",
+							"value": "Pork",
+							"description": "Filter by main ingredient"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TheMealIDB_3",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.themealdb.com/api/json/v1/1/lookup.php?i=53021",
+					"protocol": "https",
+					"host": [
+						"www",
+						"themealdb",
+						"com"
+					],
+					"path": [
+						"api",
+						"json",
+						"v1",
+						"1",
+						"lookup.php"
+					],
+					"query": [
+						{
+							"key": "i",
+							"value": "53021",
+							"description": "Lookup full meal details by id"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

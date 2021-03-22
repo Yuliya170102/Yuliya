@@ -1,0 +1,116 @@
+{
+	"info": {
+		"_postman_id": "d683faaf-2c4c-4612-952a-91b3dd9f74ff",
+		"name": "Makeup",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Makeup_1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline&rating_greater_than=3",
+					"protocol": "http",
+					"host": [
+						"makeup-api",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"products.json"
+					],
+					"query": [
+						{
+							"key": "brand",
+							"value": "maybelline",
+							"description": "Search for the brand"
+						},
+						{
+							"key": "rating_greater_than",
+							"value": "3",
+							"description": "Will return a list of products with a rating more than indicated number"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Makeup_2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline&product_type=lipstick",
+					"protocol": "http",
+					"host": [
+						"makeup-api",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"products.json"
+					],
+					"query": [
+						{
+							"key": "brand",
+							"value": "maybelline",
+							"description": "Search for the brand"
+						},
+						{
+							"key": "product_type",
+							"value": "lipstick",
+							"description": "Search for the product"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Makeup_3",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline&product_type=Eyeshadow&price_less_than=10",
+					"protocol": "http",
+					"host": [
+						"makeup-api",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"products.json"
+					],
+					"query": [
+						{
+							"key": "brand",
+							"value": "maybelline",
+							"description": "Search for the brand"
+						},
+						{
+							"key": "product_type",
+							"value": "Eyeshadow",
+							"description": "Search for the product"
+						},
+						{
+							"key": "price_less_than",
+							"value": "10",
+							"description": "Price less then 10$"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
