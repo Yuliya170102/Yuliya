@@ -302,54 +302,56 @@ let adList = [
  },
  ]
 
+function filterByVendors(ads, vendors,skip, top){
+    return ads.filter(сurrentValue => vendors.includes(сurrentValue.vendor)).slice(skip,top);
+}
+
+function filterByTags (ads, hashTags, skip, top){
+    return ads.filter (currentValue => {
+        for(let j = 0;j<currentValue.hashTags.length;++j){
+            if(hashTags.includes(currentValue.hashTags[j])){
+                return true;
+            }
+        }
+        return false;
+    }).slice(skip,top);
+}
+
  let getAds = (function(skip = 0, top = 10, filterConfig = {}){
-    let adsResult = [];
-    if (Object.keys(filterConfig).length !== 0 && filterConfig.constructor === Object) {
-        let key = Object.keys(filterConfig);
-        let value = filterConfig[key[0]];
-        if (key[0] === 'createdAt' || key[0] === 'validUntil') {
-            adList.forEach(elem => {
-                let timeRequest = String(new Date(value));
-                let time = String(elem[key]);
-                if (time == timeRequest)
-                    resultAds.push(elem);
-            });
-        } else {
-            adList.forEach(elem => {
-                if (elem[key] === value)
-                    resultAds.push(elem);
-            });
-        }
+     let adsToShow = [];
+    let keys = Object.keys(filterConfig);
 
-        if (resultAds.length !== 0) {
-            resultAds.sort(function (a, b) {
-                return new Date(a.createdAt) - new Date(b.createdAt);
-            });
+    if(keys.length == 0){ //no filter used
+        adsToShow = adList.slice(skip,top);
+    }else if (keys.length == 1){
+        if(keys[0] == 'hashTags'){
+            adsToShow = filterByTags(adList, filterConfig[keys[0]],skip, top);
+        } else if(keys[0] == 'vendors'){
+            adsToShow = filterByVendors(adList, filterConfig[keys[0]],skip, top);
         }
-    } else {
-        resultAds = adList.slice();
-        resultAds.sort(function (a, b) {
-            return new Date(a.createdAt) - new Date(b.createdAt);
-        });
+    }else if(keys.length == 2){
+        if(keys[0] == 'hashTags'){
+            adsToShow = filterByTags(adList, filterConfig[keys[0]],skip, top);
+            adsToShow = filterByVendors(adsToShow,filterConfig[keys[1]],0,top);
+        }else if(keys[0] == 'vendors'){
+            adsToShow = filterByVendors(adList, filterConfig[keys[0]],skip, top);
+            adsToShow = filterByTags(adsToShow,filterConfig[keys[1]],0,top);
+        }
     }
-
-    if (resultAds.length !== 0) {
-        let border = skip + top;
-        if (border > resultAds.length)
-            resultAds = resultAds.slice(skip, resultAds.length);
-        else
-            resultAds = resultAds.slice(skip, border);
-    }
-    return adsResult;
+    //sorting by creation date
+    adsToShow.sort(function(a,b){
+        return a.createdAt - b.createdAt;
+    });
+    return adsToShow;
 });
 
  let getAd = (function(id){
-    for (let i =0; i<adList.length;++i){
-        if(adList[i].id == id){
-            return adList[i];
-        }
+    let result = adList.find(currentValue => currentValue.id == id);
+    if(result == undefined){
+        return {};
+    } else{
+        return result;
     }
-    return {};
 });
 
 let validateAd = (function(adItem){
@@ -385,16 +387,11 @@ let editAd = (function(id,adItem){
         return false;
     }
 
-    let ind;
-    for(let i=0;i<=adList.length;++i){
-        if(i == adList.length){
-            return false;
-        }else if(adList[i].id === id){
-            ind = i;
-            break;
-        }
+    let ind = adList.findIndex(currentValue => currentValue.id == id);
+    if (ind === -1) {
+        return false;
     }
-    new_ad = adList[ind];
+    new_ad = Object.assign(adList[ind]);
     for(let i=0;i<=adList.length;++i){
         new_ad[keys[i]] = adItem[keys[i]];
     }
