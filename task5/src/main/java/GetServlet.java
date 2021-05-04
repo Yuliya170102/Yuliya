@@ -11,6 +11,12 @@ public class GetServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException{
         String name = req.getParameter("name");
         ServletOutputStream stream = resp.getOutputStream();
+        if(name.length() == 0) {
+            stream.print("Name wasn't entered.");
+        }
+        if(name.length() > 100) {
+            stream.print("Name is too long!");
+        }
         stream.print("Name is " + name);
     }
 }

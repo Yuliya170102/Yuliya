@@ -11,7 +11,7 @@ public class CheckServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
         resp.setContentType("application/json");
-        String response = "{\"sucess\":true}";
+        String response = "{\"success\":true}";
         resp.getWriter().println(response);
     }
 
