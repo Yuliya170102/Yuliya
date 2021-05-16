@@ -355,7 +355,6 @@ class AdList {
 
     addAll(adList){
         if(!(Array.isArray(adList))){
-            return "Incorrect parametrs";
             return false;
         }
         let incorrectItem = [];
@@ -366,9 +365,6 @@ class AdList {
     edit(id, adItem) {
         if(typeof id !== "string" || typeof adItem !== "object"){
             return "Incorrect parametrs";
-            return false;
-        }
-        if (adItem.id !== undefined) {
             return false;
         }
         let editableItem = this.get(id);
@@ -402,7 +398,7 @@ class AdList {
         if(typeof adItem !== "object"){
             return err;
         }
-        if (adItem.id !== undefined && typeof adItem.id == "string"
+       return adItem.id !== undefined && typeof adItem.id == "string"
             && adItem.description !== undefined && typeof adItem.description == "string"
             && adItem.description.length < 200
             && adItem.createdAt !== undefined && adItem.createdAt instanceof Date
@@ -411,13 +407,8 @@ class AdList {
             && adItem.vendor.trim() !== ""
             && adItem.hashTags !== undefined && Array.isArray(adItem.hashTags)
             && adItem.discount !== undefined && typeof adItem.discount == "string"
-            && adItem.validUntil !== undefined && adItem.createdAt instanceof Date) {
-            return true;
-        } else {
-            return false;
-        }
+            && adItem.validUntil !== undefined && adItem.createdAt instanceof Date;
     }
-
 }
 
 let adList = new AdList(ads);
