@@ -1,4 +1,0 @@
-SELECT  *
-FROM products
-ORDER BY createAt DESC
-LIMIT 5;
